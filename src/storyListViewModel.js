@@ -1,7 +1,7 @@
 (function(exports) {
 
   function StoryListView (storyList){
-    this.listToRender = storyList
+    this.listToRender = storyList;
   }
 
   StoryListView.prototype.renderHTML = function () {

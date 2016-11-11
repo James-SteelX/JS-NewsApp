@@ -1,16 +1,24 @@
 (function(exports) {
- var id = 0
- 
+  var id = 0;
+
   function Story(story){
-    this.singleStory = story
-    this.id = id++
+    this.storyObj = story;
+    this.id = id++;
   }
 
-Story.prototype.getStoryHeadline = function () {
-  return this.singleStory.webTitle
-};
+  Story.prototype.getStoryHeadline = function () {
+    return this.storyObj.webTitle;
+  };
 
-exports.Story = Story;
+  Story.prototype.getStoryText = function () {
+    return this.storyObj.responseText;
+  };
+
+  Story.prototype.getStoryUrl = function () {
+    return this.storyObj.webUrl;
+  };
+
+  exports.Story = Story;
 
 
 })(this);
