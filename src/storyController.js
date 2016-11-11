@@ -9,6 +9,7 @@
     document.getElementById("app").innerHTML = stories;
   };
 
+
   exports.StoryController = StoryController;
 
 })(this);
