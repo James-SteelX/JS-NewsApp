@@ -1,6 +1,4 @@
 var headlineList = new HeadlineListView("hello")
-// headlineList.getArticleUrl(3)
-
 var xhr = new XMLHttpRequest();
 xhr.open('GET', "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?order-by=newest&q=politics?show-fields=body", true);
 xhr.send();
@@ -27,11 +25,13 @@ function getArticleSummary(article_link){
   article.open('GET', "http://news-summary-api.herokuapp.com/aylien?apiRequestUrl=https://api.aylien.com/api/v1/summarize?url=" + article_link, true);
   article.send();
   article.onreadystatechange = summarizeHeadline;
+  console.log(article_link)
 
   function summarizeHeadline() {
     if (article.readyState == 4 && article.status == 200) {
       var response = JSON.parse(article.responseText);
-      document.getElementById('article').innerHTML = response.text;
+      document.getElementById('article').innerHTML = response.text.substr(0, 500);
+      document.getElementById('url').innerHTML = '<a href="' + article_link + '">' + 'link to full article' + '</a>'
     }
   }
 }

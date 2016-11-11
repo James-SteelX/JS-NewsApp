@@ -19,14 +19,12 @@
   };
 
   HeadlineListView.prototype.triggerActionOnClick = function() {
-    // console.log(headlineList.getArticleIndex)
     window.addEventListener("hashchange", headlineList.getArticleIndex);
   };
 
   HeadlineListView.prototype.getArticleIndex = function() {
     var index = window.location.hash.split("#")[1];
     getArticleUrl(index);
-    // this.getArticleUrl(index)
   };
 
 
